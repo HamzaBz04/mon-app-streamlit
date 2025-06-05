@@ -500,21 +500,13 @@ def model_training_page():
         if problem_type == "Regression":
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.metric("Train RMSE", f"{metrics['train_rmse']:.4f}")
-                st.metric("Train MSE", f"{metrics['train_mse']:.4f}")
-            with col2:
-                st.metric("Test RMSE", f"{metrics['test_rmse']:.4f}")
-                st.metric("Test MSE", f"{metrics['test_mse']:.4f}")
-            with col3:
-                st.metric("Train R² Score", f"{metrics['train_r2']:.4f}")
-                st.metric("Test R² Score", f"{metrics['test_r2']:.4f}")
+                 st.metric("Train R² Score", f"{metrics['train_r2']:.4f}")
+                 st.metric("Test R² Score", f"{metrics['test_r2']:.4f}")
+           
+               
             
             # Additional row for MAE
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("Train MAE", f"{metrics['train_mae']:.4f}")
-            with col2:
-                st.metric("Test MAE", f"{metrics['test_mae']:.4f}")
+          
         else:
             col1, col2 = st.columns(2)
             with col1:
@@ -566,17 +558,9 @@ def results_page():
     if problem_type == "Regression":
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric("Train RMSE", f"{metrics['train_rmse']:.4f}")
-            st.metric("Train MAE", f"{metrics['train_mae']:.4f}")
-        with col2:
-            st.metric("Test RMSE", f"{metrics['test_rmse']:.4f}")
-            st.metric("Test MAE", f"{metrics['test_mae']:.4f}")
-        with col3:
-            st.metric("Train MSE", f"{metrics['train_mse']:.4f}")
             st.metric("Train R²", f"{metrics['train_r2']:.4f}")
-        with col4:
-            st.metric("Test MSE", f"{metrics['test_mse']:.4f}")
             st.metric("Test R²", f"{metrics['test_r2']:.4f}")
+        
             
         # Add interpretation of R² score
         st.info(f"""
